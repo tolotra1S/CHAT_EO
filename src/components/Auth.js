@@ -2,7 +2,7 @@ import React from 'react';
 import {auth,provider} from "../firebaseConfig.js";
 import {signInWithPopup} from "firebase/auth";
 import Cookies from 'universal-cookie';
-const cookies = new Cookies;
+const cookies = new Cookies();
 
 const Auth = () => {
     const signInWithGoogle = async () =>{
