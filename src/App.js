@@ -20,7 +20,7 @@ function App() {
   }
     return (
       <div className="App">
-        {room ? ( <Chat/> ) : ( <div>
+        {room ? ( <Chat room={room}/> ) : ( <div>
         <label>Enter Room Name:</label>
         <input ref={roomInputRef}/>
         <button onClick={()=> setRoom(roomInputRef.current.value)}>Enter Chat</button>
