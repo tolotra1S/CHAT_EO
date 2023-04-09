@@ -1,17 +1,29 @@
 import React, { useState,useEffect } from 'react';
-import { addDoc, collection,onSnapshot,serverTimestamp,where,query } from 'firebase/firestore';
+import { addDoc, collection,onSnapshot,serverTimestamp,where,query, orderBy } from 'firebase/firestore';
 import {db,auth} from "../firebaseConfig";
 
 const Chat = (props) => {
     const {room}=props
     const [newMessage,setNewMessage]=useState("");
+    const [messages,setMessages]=useState([]);
+    
     const messagesRef = collection(db,"chat")
 
     useEffect(() => {
-        const queryMessages = query(messagesRef,where("room","==",room))
-        onSnapshot(queryMessages,(snapshot)=>{
+        const queryMessages = query(
+            messagesRef,
+            where("room","==",room),
+            orderBy("createdAt"))
+        const unsuscribe = onSnapshot(queryMessages,(snapshot)=>{
+            let messages = [];
             console.log("NEW MESSAGE");
+            snapshot.forEach((doc)=>{
+                messages.push({...doc.data(), id:doc.id})
+            });
+            setMessages(messages);
+
         });
+        return () => unsuscribe();
     },[])
 
 
@@ -31,6 +43,15 @@ const Chat = (props) => {
     }
     return (
         <div>
+        <div>
+            <h1>{room}</h1>
+        </div>
+        <div>
+        {messages.map((message)=>(
+            <p>{message.text} - {message.user} </p>
+            
+        ))}
+        </div>
             <form onSubmit={handleSubmit}>
                 <input   placeholder=' Uour message'
                          onChange={(e) => setNewMessage(e.target.value)}
