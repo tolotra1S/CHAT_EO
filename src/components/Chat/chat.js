@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import { addDoc, collection,onSnapshot,serverTimestamp,where,query, orderBy } from 'firebase/firestore';
-import {db,auth} from "../firebaseConfig";
+import {db,auth} from "../../Firebase/firebaseConfig";
 
 const Chat = (props) => {
     const {room}=props

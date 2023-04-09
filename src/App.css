@@ -1,38 +1,63 @@
-.App {
+.logo{
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo{
+  text-align: center;
+  padding-bottom: 50px;
+}
+.imgLogo{
+  width: 200px;
+}
+.imgLogos{
+  width: 150px;
+}
+.Secret{
+  text-align: center;
+  margin: 50px 500px;
+  width: 300px;
+  height: 50px;
+}
+.Secret input{
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 2px solid #031130;
+  border-radius: 10px;
+  outline: none;
+  font-size: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.btn {
+  margin-left: 150px;
+  display: block;
+  font-size: 20px;
+  font-weight: lighter;
+  color: #fff;
+  padding: 5px 30px;
+  background: #1f3b3b;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 4px #031130;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.btn:hover {
+  box-shadow: 0 4px #031130;
+  top: 2px;
+} 
+.btn:active {
+  box-shadow: 0 0 #031130;
+  top: 6px;
+}
+.logout{
+  border: none;
+  background-color: transparent;
   color: white;
+  float: right;
+  cursor: pointer;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logout img{
+  width: 50px;
 }

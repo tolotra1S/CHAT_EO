@@ -1,11 +1,12 @@
-import logo from './logo.svg';
+import logo from './images/logo.png';
+import logout from './images/logout.png';
 import './App.css';
-import Auth from './components/Auth';
+import Auth from './components/Auth/Auth';
 import { useState,useRef } from 'react';
 import Cookies from 'universal-cookie';
-import Chat from './components/chat';
+import Chat from './components/Chat/chat';
 import {signOut} from 'firebase/auth';
-import {auth} from "./firebaseConfig";
+import {auth} from "./Firebase/firebaseConfig";
 const cookies = new Cookies();
 
 function App() {
@@ -22,20 +23,34 @@ function App() {
     if(!isAuth){
   return (
     <div className="App">
-      Wait. .... ..
-      <Auth setIsAuth={setIsAuth}/>
+      <div className="logo">
+          <img src={logo} className='imgLogo'/>
+      </div>
+      <div className='authent'>
+        <Auth setIsAuth={setIsAuth}/>
+      </div>
     </div>
   );
   }
     return (
       <div className="App">
-        {room ? ( <Chat room={room}/> ) : ( <div>
-        <label>Enter Room Name:</label>
-        <input ref={roomInputRef}/>
-        <button onClick={()=> setRoom(roomInputRef.current.value)}>Enter Chat</button>
+      <button onClick={signUserOut} className='logout'><img src={logout}/></button>
+        <div className="logos">
+            <img src={logo} className='imgLogos'/>
+        </div>
+        <div>
+        {room ? ( <Chat room={room}/> ) : ( 
+          <div>
+            <div className='Secret'>
+
+              <input ref={roomInputRef} type='password' placeholder='Entrer votre Code TChat'/>
+              
+              <button onClick={()=> setRoom(roomInputRef.current.value)} className='btn'>Enter >>></button>
+            <div/>
+          </div>
         </div>
         )}
-        <button onClick={signUserOut}>Logout</button>
+      </div>
       </div>
     );
     

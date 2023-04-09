@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { auth, provider } from "../firebaseConfig.js";
+import { auth, provider } from "../../Firebase/firebaseConfig.js";
 import { signInWithPopup } from "firebase/auth";
 import Cookies from 'universal-cookie';
+import "./auth.css"
 
 const cookies = new Cookies();
 
@@ -29,35 +30,32 @@ const Auth = () => {
       setUser(result.user);
       setIsAuth(true);
       cookies.set('auth-token', await result.user.getIdToken(), { path: '/', maxAge: 86400 * 7 });
+      window.location.reload();
     } catch (err) {
       console.error(err);
     }
   };
 
-  const handleSignOut = async () => {
-    try {
-      await auth.signOut();
-      setUser(null);
-      setIsAuth(false);
-      cookies.remove('auth-token', { path: '/' });
-    } catch (err) {
-      console.error(err);
-    }
-  };
+ 
 
   return (
     <div>
-      {isAuth ? (
+     
         <div>
-          <p>Welcome {user.displayName}</p>
-          <button onClick={handleSignOut}>Sign Out</button>
+        <a onClick={signInWithGoogle}>
+        <div class="g-sign-in-button">
+          <div class="content-wrapper">
+            <div class="logo-wrapper">
+              <img src="https://developers.google.com/identity/images/g-logo.png"/>
+            </div>
+            <span class="text-container">
+              <span>Sign in with Google</span>
+            </span>
+          </div>
         </div>
-      ) : (
-        <div>
-          <p>Sign in with Google to continue</p>
-          <button onClick={signInWithGoogle}>Sign in With Google</button>
+      </a>
+          
         </div>
-      )}
     </div>
   );
 };
