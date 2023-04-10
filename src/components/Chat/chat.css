@@ -149,10 +149,9 @@ select {
 	
 	
 }
-@media screen and (max-width: 280px) {
+@media screen and (max-width: 393px) {
 	.logoChat{
-		width: 10px;
-		height: 50px;
+		width: 5px;
 	}
 	
 	
