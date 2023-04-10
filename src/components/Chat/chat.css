@@ -150,4 +150,8 @@ select {
 		bottom: 1rem;
 		right: 1rem;
 	}
+	.logoChat{
+		width: 30px;
+		margin: 0 10px;
+	}
 }
