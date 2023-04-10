@@ -33,21 +33,19 @@ function App() {
   );
   }
     return (
-      <div className="App">
+      <div className="">
       <button onClick={signUserOut} className='logout'><img src={logout}/></button>
-        <div className="logos">
-            <img src={logo} className='imgLogos'/>
-        </div>
+        
         <div>
         {room ? ( <Chat room={room}/> ) : ( 
-          <div>
             <div className='Secret'>
-
+              <div className="logos">
+                <img src={logo} className='imgLogos'/>
+              </div>
               <input ref={roomInputRef} type='password' placeholder='Entrer votre Code TChat'/>
               
               <button onClick={()=> setRoom(roomInputRef.current.value)} className='btn'>Enter >>></button>
             <div/>
-          </div>
         </div>
         )}
       </div>

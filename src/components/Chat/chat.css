@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(90deg, var(--grey) 31px, transparent 1px) 50%, linear-gradient(180deg, var(--grey) 31px, var(--blue) 1px) 50%;
+  background-size: 32px 32px;
+  color: var(--dark);
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+}
+
+:root {
+	--blue: #335DFF;
+	--grey: #F5F5F5;
+	--grey-d-1: #EEE;
+	--grey-d-2: #DDD;
+	--grey-d-3: #888;
+	--white: #FFF;
+	--dark: #222;
+}
+.chatbox-message-item {
+	width: 90%;
+	padding: 1rem;
+}
+.chatbox-message-item.received {
+    margin:10px 40px;
+	background: var(--white);
+	border-radius: 0 .75rem .75rem .75rem;
+	box-shadow: .25rem .25rem 1.5rem rgba(0, 0, 0, .05);
+    
+}
+.chatbox-message-item-time {
+	float: right;
+	font-size: .75rem;
+	margin-top: .5rem;
+	display: inline-block;
+}
+.chatbox-message-bottom {
+	background: var(--white);
+	padding: .75rem 1.5rem;
+}
+.chatbox-message-form {
+	display: flex;
+	align-items: center;
+	background: var(--grey);
+	border-radius: .5rem;
+	padding: .5rem 1.25rem;
+}
+.chatbox-message-input {
+	background: transparent;
+    width: 1200px;
+	outline: none;
+	border:none;
+	resize: none;
+	scrollbar-width: none;
+
+}
+.chatbox-message-input::-webkit-scrollbar {
+	display: none;
+}
+.chatbox-message-submit {
+	font-size: 1.25rem;
+	color: var(--blue);
+	background: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+.chatbox-message-no-message {
+	font-size: 1rem;
+	font-weight: 600;
+	text-align: center;
+}
+.chatbox-show-more {
+    text-align: center;
+    margin: auto;
+}
+.chatbox-show-more a{
+    size: 10px;
+    text-align: center;
+    width: 100px;
+	color: var(--blue);
+    cursor: pointer;
+    
+}
+.room{
+    display: flex;
+}
+.room h2{
+    text-align: center;
+    margin: auto;
+}
+.logoChat{
+    width: 60px;
+    margin: 0 10px;
+}
+@media screen and (max-width: 576px) {
+	.chatbox-message-wrapper {
+		width: calc(100vw - 2rem);
+	}
+	.chatbox-wrapper {
+		bottom: 1rem;
+		right: 1rem;
+	}
+}
