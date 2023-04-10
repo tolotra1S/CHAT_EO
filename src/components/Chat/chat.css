@@ -146,12 +146,14 @@ select {
 	.chatbox-message-wrapper {
 		width: calc(100vw - 2rem);
 	}
-	.chatbox-wrapper {
-		bottom: 1rem;
-		right: 1rem;
-	}
+	
+	
+}
+@media screen and (max-width: 280px) {
 	.logoChat{
-		width: 30px;
-		margin: 0 10px;
+		width: 10px;
+		height: 20px;
 	}
+	
+	
 }
