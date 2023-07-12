@@ -8,7 +8,7 @@ import Chat from './components/Chat/chat';
 import {signOut} from 'firebase/auth';
 import {auth} from "./Firebase/firebaseConfig";
 const cookies = new Cookies();
-
+//OK
 function App() {
   const [isAuth,setIsAuth]= useState(cookies.get("auth-token"));
   const [room, setRoom] = useState(null);
